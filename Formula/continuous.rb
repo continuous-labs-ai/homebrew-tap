@@ -5,20 +5,20 @@
 class Continuous < Formula
   desc "Build and run API, Web and MCP Boxes with the Continuous API."
   homepage "https://github.com/continuous-labs-ai/cli"
-  version "0.5.0"
+  version "0.5.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/continuous-labs-ai/cli/releases/download/v0.5.0/continuous_Darwin_x86_64.tar.gz"
-      sha256 "78da1bed9b62afe4fd5e3636ccf117a60998c2c981ccebcfc4443db08df8f7ab"
+      url "https://github.com/continuous-labs-ai/cli/releases/download/v0.5.1/continuous_Darwin_x86_64.tar.gz"
+      sha256 "297d765d2b50df6a85b23b854e09e567f42c1fe2a6eada99697f5e1bdc170e81"
 
       define_method(:install) do
         bin.install "continuous"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/continuous-labs-ai/cli/releases/download/v0.5.0/continuous_Darwin_arm64.tar.gz"
-      sha256 "21df0ad2267495396ea4927ddb81f73627d4c47577ef0d174fa2adfbf490bf88"
+      url "https://github.com/continuous-labs-ai/cli/releases/download/v0.5.1/continuous_Darwin_arm64.tar.gz"
+      sha256 "087be2d9c858c4696ad1b09c9563d37d9a1e31a17501dcafc68e2c6deaddc2a3"
 
       define_method(:install) do
         bin.install "continuous"
@@ -28,15 +28,15 @@ class Continuous < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/continuous-labs-ai/cli/releases/download/v0.5.0/continuous_Linux_x86_64.tar.gz"
-      sha256 "253eb661fa3eaf0728ebd0f6d0280800a840ec4336e34d7198326f601a303489"
+      url "https://github.com/continuous-labs-ai/cli/releases/download/v0.5.1/continuous_Linux_x86_64.tar.gz"
+      sha256 "f7f3f03048b888b84a5f4a4b1323f9d067dd4c801dec676e504a51c6d4407f49"
       define_method(:install) do
         bin.install "continuous"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/continuous-labs-ai/cli/releases/download/v0.5.0/continuous_Linux_arm64.tar.gz"
-      sha256 "1316453fb79bb191eb2496cc02e83c3e0749e4f5ad9d73d4436e1a13694234ff"
+      url "https://github.com/continuous-labs-ai/cli/releases/download/v0.5.1/continuous_Linux_arm64.tar.gz"
+      sha256 "5becc55c20282134e0bb5ad74a488ede27ce02df8e50e807a2117d1ae2313630"
       define_method(:install) do
         bin.install "continuous"
       end
