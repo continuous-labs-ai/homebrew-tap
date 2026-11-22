@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Only github-actions is enabled. The homebrew manager stays off because cli's release flow writes Formula/continuous.rb.",
+  "description": "The homebrew manager stays off because cli's release flow writes Formula/continuous.rb.",
   "extends": [
     ":dependencyDashboard",
     "schedule:weekly"
