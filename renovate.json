@@ -1,0 +1,48 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    ":dependencyDashboard",
+    "schedule:weekly"
+  ],
+  "enabledManagers": [
+    "github-actions"
+  ],
+  "minimumReleaseAge": "1 day",
+  "internalChecksFilter": "strict",
+  "ignorePaths": [
+    "**/node_modules/**"
+  ],
+  "automerge": false,
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "labels": [
+    "dependencies"
+  ],
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "labels": [
+      "dependencies",
+      "security"
+    ]
+  },
+  "packageRules": [
+    {
+      "description": "The tap has no dependencies today; cli's release workflow writes Formula/*.rb, so the homebrew manager stays off. This config only reports future workflow actions.",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "actions-minor-patch"
+    },
+    {
+      "description": "As in continuous: a rule above that matches every update type disables dependencies only after lookup, when Renovate knows which updates fix a vulnerability, so this rule keeps their security updates.",
+      "matchJsonata": [
+        "isVulnerabilityAlert"
+      ],
+      "enabled": true
+    }
+  ]
+}
