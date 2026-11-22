@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Only github-actions is enabled. The homebrew manager stays off because cli's release flow writes Formula/continuous.rb.",
   "extends": [
     ":dependencyDashboard",
     "schedule:weekly"
@@ -27,7 +28,6 @@
   },
   "packageRules": [
     {
-      "description": "The tap has no dependencies today; cli's release workflow writes Formula/*.rb, so the homebrew manager stays off. This config only reports future workflow actions.",
       "matchManagers": [
         "github-actions"
       ],
@@ -36,13 +36,6 @@
         "patch"
       ],
       "groupName": "actions-minor-patch"
-    },
-    {
-      "description": "As in continuous: a rule above that matches every update type disables dependencies only after lookup, when Renovate knows which updates fix a vulnerability, so this rule keeps their security updates.",
-      "matchJsonata": [
-        "isVulnerabilityAlert"
-      ],
-      "enabled": true
     }
   ]
 }
