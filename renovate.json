@@ -1,0 +1,41 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "The homebrew manager stays off because cli's release flow writes Formula/continuous.rb.",
+  "extends": [
+    ":dependencyDashboard",
+    "schedule:weekly"
+  ],
+  "enabledManagers": [
+    "github-actions"
+  ],
+  "minimumReleaseAge": "1 day",
+  "internalChecksFilter": "strict",
+  "ignorePaths": [
+    "**/node_modules/**"
+  ],
+  "automerge": false,
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "labels": [
+    "dependencies"
+  ],
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "labels": [
+      "dependencies",
+      "security"
+    ]
+  },
+  "packageRules": [
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "actions-minor-patch"
+    }
+  ]
+}
